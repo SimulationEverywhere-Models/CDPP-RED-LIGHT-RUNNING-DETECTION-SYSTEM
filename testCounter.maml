@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> counter@counter&#xd;</components>
+    <Out> countOut&#xd;</Out>
+    <In> cam1&#xd;</In>
+    <In> cam2&#xd;</In>
+    <In> cam3&#xd;</In>
+    <In> cam4&#xd;</In>
+    <Link> countOut@counter countOut&#xd;</Link>
+    <Link> cam1 cam1@counter&#xd;</Link>
+    <Link> cam2 cam2@counter&#xd;</Link>
+    <Link> cam3 cam3@counter&#xd;</Link>
+    <Link> cam4 cam4@counter  &#xd;</Link>
+  </top>
+  <counter>
+    <preparation> 00:00:00:10&#xd;</preparation>
+  </counter>
+</CDPlusPlus_Builder_Version_1.0.0>

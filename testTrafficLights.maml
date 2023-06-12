@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> trafficlights@trafficlights&#xd;</components>
+    <Out> redNS&#xd;</Out>
+    <Out> redEW&#xd;</Out>
+    <Link> redNS@trafficlights redNS&#xd;</Link>
+    <Link> redEW@trafficlights redEW&#xd;</Link>
+  </top>
+  <trafficlights>
+    <greenTime> 00:00:07:00&#xd;</greenTime>
+    <yellowTime> 00:00:03:00&#xd;</yellowTime>
+  </trafficlights>
+</CDPlusPlus_Builder_Version_1.0.0>

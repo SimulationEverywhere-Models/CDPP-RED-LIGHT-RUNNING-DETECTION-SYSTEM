@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> camsystem@camsystem&#xd;</components>
+    <Out> counter&#xd;</Out>
+    <Out> data&#xd;</Out>
+    <In> red&#xd;</In>
+    <In> emd&#xd;</In>
+    <Link> counter@camsystem counter&#xd;</Link>
+    <Link> data@camsystem data&#xd;</Link>
+    <Link> red red@camsystem&#xd;</Link>
+    <Link> emd emd@camsystem &#xd;</Link>
+  </top>
+  <camsystem>
+    <preparation> 00:00:00:10&#xd;</preparation>
+  </camsystem>
+</CDPlusPlus_Builder_Version_1.0.0>

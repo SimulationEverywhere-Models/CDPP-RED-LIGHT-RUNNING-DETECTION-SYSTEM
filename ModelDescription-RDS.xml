@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Models>
+	<Model name="RDS" type="coupled" description="a coupled system for red-light runner detection">
+		<Inputs>
+			<Port name="svN" type="double" description="speeding vehicle comming from North"/>
+			<Port name="svS" type="double" description="speeding vehicle comming from South"/>
+			<Port name="svW" type="double" description="speeding vehicle comming from West"/>
+			<Port name="svE" type="double" description="speeding vehicle comming from East"/>			
+		</Inputs>
+		<Outputs>
+			<Port name="countOut" type="double" description="number of violations for 10 min comming from counter to Data Center"/>
+			<Port name="dataN" type="double" description="video evidence of violation from North camera to Data Center"/>
+			<Port name="dataS" type="double" description="video evidence of violation from South camera to Data Center"/>
+			<Port name="dataW" type="double" description="video evidence of violation from West camera to Data Center"/>
+			<Port name="dataE" type="double" description="video evidence of violation from East camera to Data Center"/>
+		</Outputs>
+		<Files>	
+			<File name="TestRDS.ma" type="MA" location="/"/>
+			<File name="TestRDS.maml" type="MAML" location="/"/>
+			<File name="TestRDS.ev" type="EV" location="/"/>
+			<File name="TestRDS.log" type="LOG" location="/"/>
+			<File name="TestRDS.bat" type="BAT" location="/"/>
+		</Files>
+	</Model>
+	<Model name="camWithDetector" type="coupled" description="a coupled component which makes video shots when it gets red and sv input signals.">
+		<Inputs>
+			<Port name="red" type="double" description="gets red signal from trafficlights"/>
+			<Port name="sv" type="double" description="gets sv signal when speeding vehicle is detected"/>			
+		</Inputs>
+		<Outputs>
+			<Port name="counter" type="double" description="sends signal to counter when evidence is made"/>
+			<Port name="data" type="double" description="sends video to Data Center when evidence is made"/>			
+		</Outputs>
+		<Files>
+			<File name="TestCamWithDetector.ma" type="MA" location="/"/>
+			<File name="TestCamWithDetector.maml" type="MAML" location="/"/>
+			<File name="TestCamWithDetector.ev" type="EV" location="/"/>
+			<File name="TestCamWithDetector.log" type="LOG" location="/"/>
+			<File name="TestCamWithDetector.bat" type="BAT" location="/"/>
+		</Files>
+	<Model name="camsystem" type="atomic" description="makes videoshots">
+		<Inputs>
+			<Port name="red" type="double" description="red signal from trafficlights"/>	
+			<Port name="emd" type="double" description="speeding vehicle detected signal from detector"/>	
+		</Inputs>
+		<Outputs>
+			<Port name="counter" type="double" description="sends signal to counter"/>
+			<Port name="data" type="double" description="sends video  to Data Center"/>
+		</Outputs>
+		<Files>
+			<File name="camsystem.h" type="H" location="/"/>
+			<File name="camsystem.cpp" type="CPP" location="/"/>
+			<File name="testCamSystem.ma" type="MA" location="/"/>
+			<File name="testCamSystem.maml" type="MAML" location="/"/>
+			<File name="testCamSystem.ev" type="EV" location="/"/>
+			<File name="testCamSystem.log" type="LOG" location="/"/>
+			<File name="testCamSystem.bat" type="BAT" location="/"/>
+		</Files>
+	</Model>
+	<Model name="detector" type="atomic" description="detects speeding vehicle">
+		<Inputs>
+			<Port name="sv" type="double" description="detects speeding vehicle"/>		
+		</Inputs>
+		<Outputs>
+			<Port name="emd" type="double" description="sends signal to cameraSystem when speeding vehicle detected"/>
+		</Outputs>
+		<Files>
+			<File name="detector.h" type="H" location="/"/>
+			<File name="detector.cpp" type="CPP" location="/"/>
+			<File name="testDetector.ma" type="MA" location="/"/>
+			<File name="testDetector.maml" type="MAML" location="/"/>
+			<File name="testDetector.ev" type="EV" location="/"/>
+			<File name="testDetector.log" type="LOG" location="/"/>
+			<File name="testDetector.bat" type="BAT" location="/"/>
+		</Files>
+	</Model>
+	
+	</Model>
+	<Model name="trafficlights" type="atomic" description="a atomic model of traffic lights for intersection.">
+		<Inputs>
+			
+		</Inputs>
+		<Outputs>
+			<Port name="redEW" type="double" description="provides redEW  signals for directions East- West"/>
+			<Port name="redNS" type="double" description="provides redNS  signals for directions North- South"/>
+		</Outputs>
+		<Files>
+			<File name="trafficlights.h" type="H" location="/"/>
+			<File name="trafficlights.cpp" type="CPP" location="/"/>
+			<File name="testTrafficlights.ma" type="MA" location="/"/>
+			<File name="testTrafficlights.maml" type="MAML" location="/"/>
+			<File name="testTrafficlights.ev" type="EV" location="/"/>
+			<File name="testTrafficlights.log" type="LOG" location="/"/>
+			<File name="testTrafficlights.bat" type="BAT" location="/"/>
+		</Files>
+	</Model>
+	<Model name="counter" type="atomic" description="a counter, which computes number of violations per 10 min.">
+		<Inputs>
+			<Port name="cam1" type="double" description="gets signals from North camera"/>
+			<Port name="cam2" type="double" description="gets signals from South camera"/>
+			<Port name="cam3" type="double" description="gets signals from West camera"/>
+			<Port name="cam4" type="double" description="gets signals from East camera"/>			
+		</Inputs>
+		<Outputs>
+			<Port name="countOut" type="double" description="sends namber of violations on the intersection to Data Center every 10 min"/>
+		</Outputs>
+		<Files>
+			<File name="counter.h" type="H" location="/"/>
+			<File name="counter.cpp" type="CPP" location="/"/>
+			<File name="testCounter.ma" type="MA" location="/"/>
+			<File name="testCounter.maml" type="MAML" location="/"/>
+			<File name="testCounter.ev" type="EV" location="/"/>
+			<File name="testCounter.log" type="LOG" location="/"/>
+			<File name="testCounter.bat" type="BAT" location="/"/>
+		</Files>
+	</Model>
+	
+</Models>

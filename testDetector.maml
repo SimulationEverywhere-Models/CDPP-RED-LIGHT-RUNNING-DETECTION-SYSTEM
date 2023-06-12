@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDPlusPlus_Builder_Version_1.0.0>
+  <top>
+    <components> detector@detector&#xd;</components>
+    <Out> emd&#xd;</Out>
+    <In> sv&#xd;</In>
+    <Link> emd@detector emd&#xd;</Link>
+    <Link> sv sv@detector &#xd;</Link>
+  </top>
+  <detector>
+    <preparation> 00:00:00:10&#xd;</preparation>
+  </detector>
+</CDPlusPlus_Builder_Version_1.0.0>
